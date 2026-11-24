@@ -1,0 +1,157 @@
+/* ============================================================
+   style.css — shared stylesheet for all pages of the portfolio
+   One external stylesheet is linked by every page so the whole
+   site keeps the same colours, fonts and layout.
+   ============================================================ */
+
+/* Colour palette and fonts are stored in CSS variables, so a
+   colour can be changed in one place for the whole website. */
+:root{
+  --bg:#0e0e10;
+  --panel:#18181b;
+  --line:#2a2a2f;
+  --text:#f2f2f2;
+  --muted:#a1a1aa;
+  --accent:#ff6a13;
+  --accent-ink:#1a0a00;
+  --error:#ff8080;
+  --success:#8fe3a0;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:400 1rem/1.65 "Nunito Sans",system-ui,sans-serif;
+}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* ---------- Header and navigation (same on every page) ---------- */
+header{
+  position:sticky;top:0;z-index:5;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font:700 1.1rem Sora,sans-serif;color:var(--accent);text-decoration:none}
+nav{display:flex;gap:22px}
+nav a{color:var(--muted);text-decoration:none;font-size:.95rem;white-space:nowrap}
+nav a:hover,nav a:focus-visible{color:var(--accent)}
+/* script.js adds class="active" to the link of the current page */
+nav a.active{color:var(--accent);font-weight:700}
+.btn{
+  display:inline-block;padding:11px 22px;border-radius:8px;font-weight:600;
+  text-decoration:none;border:1px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);cursor:pointer;font-size:1rem;
+}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+a:focus-visible,.btn:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* Hamburger button: hidden on desktop, shown on small screens */
+#menuBtn{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--text);font-size:1.2rem;padding:6px 12px;cursor:pointer}
+
+/* ---------- Home page hero ---------- */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0 56px}
+.hero small{color:var(--muted);font-size:1.05rem}
+.hero h1{font-size:clamp(2rem,5vw,3.1rem);margin:6px 0 10px}
+.hero .role{font:700 clamp(1.5rem,4vw,2.3rem) Sora,sans-serif;color:var(--accent);margin-bottom:18px}
+.hero p{color:var(--muted);max-width:46ch;margin:0 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;margin-top:36px;background:var(--panel);border:1px solid var(--line);border-radius:10px;max-width:420px}
+.stats div{flex:1;padding:14px 16px}
+.stats div+div{border-left:1px solid var(--line)}
+.stats b{display:block;color:var(--accent);font:700 1.4rem Sora,sans-serif}
+.stats span{font-size:.85rem;color:var(--muted)}
+.photo{justify-self:center;width:min(100%,380px);aspect-ratio:1;border-radius:50%;background:var(--panel);padding:14px;border:1px solid var(--line)}
+.photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+
+/* ---------- Sections and general content ---------- */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.5rem,3.5vw,2rem);margin-bottom:28px}
+section p.lead{color:var(--muted);max-width:65ch}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two-col p{margin:0 0 14px;color:var(--muted)}
+ul.quals{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+ul.quals li{padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+ol.steps{color:var(--muted);padding-left:22px;margin:0}
+ol.steps li{margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{padding:6px 14px;border:1px solid var(--line);background:var(--panel);border-radius:999px;font-size:.92rem}
+
+/* ---------- Tables ---------- */
+.table-box{overflow-x:auto}              /* lets the table scroll sideways on phones */
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line)}
+caption{text-align:left;font:700 1.05rem Sora,sans-serif;padding:0 0 12px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#202024;color:var(--accent);font-family:Sora,sans-serif;font-size:.95rem}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:#141416}   /* zebra stripes make rows easier to read */
+
+/* ---------- Project cards ---------- */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{
+  padding:8px 18px;border-radius:999px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);cursor:pointer;font-size:.92rem;
+}
+.filters button.active{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card .art{aspect-ratio:16/10;background:#000;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+.card .art img{width:100%;height:100%;object-fit:cover}
+.card .body{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:1.2rem}
+.card p{margin:0;color:var(--muted);font-size:.96rem}
+.card .tags{margin-top:auto;padding-top:6px}
+.card .tags span{font-size:.8rem;padding:3px 10px}
+/* Pure-CSS solar system art (kept from my single-page version) */
+.solar{position:relative;width:100%;height:100%;background:radial-gradient(circle at 50% 50%,#1a1206,#050505)}
+.solar i{position:absolute;left:50%;top:50%;border:1px solid #3a2a1a;border-radius:50%;transform:translate(-50%,-50%)}
+.solar i::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);top:-5px;left:50%}
+.solar i:nth-child(1){width:90px;height:90px}.solar i:nth-child(2){width:160px;height:160px}
+.solar i:nth-child(3){width:230px;height:230px}.solar i:nth-child(4){width:300px;height:300px}
+.solar i:nth-child(2)::after{background:#6fb3ff}.solar i:nth-child(3)::after{background:#e8d28a}.solar i:nth-child(4)::after{background:#c46a4a}
+.solar b{position:absolute;left:50%;top:50%;width:46px;height:46px;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,#ffd37a,#ff6a13)}
+@media (prefers-reduced-motion:no-preference){
+  .solar i{animation:spin 24s linear infinite}
+  .solar i:nth-child(2){animation-duration:36s}.solar i:nth-child(3){animation-duration:52s}.solar i:nth-child(4){animation-duration:70s}
+}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.flow{font:.9rem/1.7 ui-monospace,Menlo,Consolas,monospace;color:#8fe3a0;background:#050806;width:100%;height:100%;padding:22px;display:flex;flex-direction:column;justify-content:center}
+.flow span{color:var(--muted)}
+
+/* ---------- Contact page ---------- */
+.contact-list{display:grid;gap:14px;max-width:520px;margin-bottom:40px}
+.contact-list a{display:flex;justify-content:space-between;gap:16px;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;text-decoration:none}
+.contact-list a:hover{border-color:var(--accent)}
+.contact-list span{color:var(--muted)}
+form{max-width:620px;display:grid;gap:18px}
+fieldset{border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:0}
+legend{font-family:Sora,sans-serif;font-weight:600;padding:0 6px}
+label{display:block;font-weight:600;margin-bottom:6px}
+input[type=text],input[type=email],select,textarea{
+  width:100%;padding:11px 14px;border-radius:8px;border:1px solid var(--line);
+  background:var(--panel);color:var(--text);font:inherit;
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.radio-row,.check-row{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.radio-row label,.check-row label{font-weight:400;margin:0}
+.error{color:var(--error);font-size:.9rem;min-height:1.2em;margin:4px 0 0}
+#formSuccess{display:none;border:1px solid var(--success);color:var(--success);border-radius:10px;padding:14px 18px}
+
+/* ---------- Footer ---------- */
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;text-align:center}
+
+/* ---------- Responsive rules: one column on small screens ---------- */
+@media (max-width:820px){
+  .hero,.two-col,.projects{grid-template-columns:1fr}
+  .hero{padding-top:40px}
+  .photo{order:-1;width:min(70%,300px)}
+  #menuBtn{display:block}
+  nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px}
+  nav.open{display:flex}
+  nav a{padding:8px 0}
+  header .btn{display:none}
+}
