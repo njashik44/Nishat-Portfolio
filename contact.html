@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Nishat Jamal Ashik — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Common header and navigation: the same block is used on all four pages -->
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Nishat.</a>
+    <button id="menuBtn" aria-label="Open menu">&#9776;</button>
+    <nav id="mainNav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn" href="contact.html">Hire me</a>
+  </div>
+</header>
+
+<main>
+  <section style="border-top:none">
+    <div class="wrap">
+      <h2>Contact me</h2>
+
+      <!-- Direct contact links -->
+      <div class="contact-list">
+        <a href="mailto:alifr0241@gmail.com">Email <span>alifr0241@gmail.com</span></a>
+        <a href="tel:01642121332">Phone <span>01642121332</span></a>
+        <a href="https://github.com/njashik44" target="_blank" rel="noopener">GitHub <span>github.com/njashik44</span></a>
+        <a href="index.html">Location <span>Joydevpur, Gazipur</span></a>
+      </div>
+
+      <h3 style="margin-bottom:16px">Send a message</h3>
+      <p class="lead" style="margin-top:0">Fill in the form and press Send. JavaScript checks the fields first, then the message is submitted with Ajax, so the page does not reload.</p>
+
+      <!-- Contact form: text, email, dropdown, radio, checkbox, textarea, submit -->
+      <form id="contactForm" novalidate>
+        <div>
+          <label for="fullName">Your name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Rahim Uddin">
+          <p class="error" id="errName"></p>
+        </div>
+
+        <div>
+          <label for="email">Your email</label>
+          <input type="email" id="email" name="email" placeholder="e.g. name@example.com">
+          <p class="error" id="errEmail"></p>
+        </div>
+
+        <div>
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="">-- Please choose a subject --</option>
+            <option value="job">Job opportunity</option>
+            <option value="project">Project collaboration</option>
+            <option value="feedback">Feedback on my portfolio</option>
+            <option value="other">Other</option>
+          </select>
+          <p class="error" id="errSubject"></p>
+        </div>
+
+        <fieldset>
+          <legend>Message type</legend>
+          <div class="radio-row"><input type="radio" id="typeJob" name="msgType" value="job" checked><label for="typeJob">Job / internship</label></div>
+          <div class="radio-row"><input type="radio" id="typeProject" name="msgType" value="project"><label for="typeProject">Project work</label></div>
+          <div class="radio-row"><input type="radio" id="typeGeneral" name="msgType" value="general"><label for="typeGeneral">General question</label></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>I am interested in (tick any)</legend>
+          <div class="check-row"><input type="checkbox" id="intWeb" name="interest" value="web"><label for="intWeb">Web development</label></div>
+          <div class="check-row"><input type="checkbox" id="intLinux" name="interest" value="linux"><label for="intLinux">Linux / servers</label></div>
+          <div class="check-row"><input type="checkbox" id="intGraphics" name="interest" value="graphics"><label for="intGraphics">Graphics / OpenGL</label></div>
+          <div class="check-row"><input type="checkbox" id="intElectronics" name="interest" value="electronics"><label for="intElectronics">Electronics</label></div>
+        </fieldset>
+
+        <div>
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+          <p class="error" id="errMessage"></p>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Send message</button>
+        </div>
+
+        <div id="formSuccess"><span id="successText"></span></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year">2026</span> Nishat Jamal Ashik &middot; Built with HTML, CSS, JavaScript and jQuery</div>
+</footer>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

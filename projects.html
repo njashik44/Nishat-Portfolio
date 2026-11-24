@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Nishat Jamal Ashik — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Common header and navigation: the same block is used on all four pages -->
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Nishat.</a>
+    <button id="menuBtn" aria-label="Open menu">&#9776;</button>
+    <nav id="mainNav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn" href="contact.html">Hire me</a>
+  </div>
+</header>
+
+<main>
+  <section style="border-top:none">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <p class="lead">Four projects from my university lab work — a web application, a graphics program, a Linux mail server and an electronics circuit. Use the buttons to filter them by type (this filter is powered by jQuery). The code is on my <a href="https://github.com/njashik44" target="_blank" rel="noopener">GitHub profile</a>.</p>
+
+      <!-- Filter buttons: script.js reads data-filter and shows matching cards -->
+      <div class="filters">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="web">Web</button>
+        <button data-filter="software">Software</button>
+        <button data-filter="systems">Systems</button>
+        <button data-filter="hardware">Hardware</button>
+      </div>
+
+      <div class="projects">
+        <article class="card" data-cat="web">
+          <div class="art"><img src="images/project-quickshopping.jpg" alt="Quick Shopping home page with product cards and category list" loading="lazy"></div>
+          <div class="body">
+            <h3>Quick Shopping</h3>
+            <p>An e-commerce site with registration and login, product search by category, a cart, and an admin dashboard for products, users and orders. Deployed on Apache Tomcat.</p>
+            <div class="tags"><span>Java</span><span>JSP</span><span>Hibernate</span><span>MySQL</span><span>HTML</span><span>CSS</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="software">
+          <div class="art"><div class="solar" role="img" aria-label="Animated orbits around a glowing sun"><b></b><i></i><i></i><i></i><i></i></div></div>
+          <div class="body">
+            <h3>Solar system in OpenGL</h3>
+            <p>A solar system built with OpenGL, designed with UI and UX in mind so that the planets and their movement are easy to follow.</p>
+            <div class="tags"><span>OpenGL</span><span>UI/UX</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="systems">
+          <div class="art"><div class="flow"><div>user1 <span>&rarr; send &rarr;</span> Postfix (SMTP)</div><div>Postfix <span>&rarr; Maildir &rarr;</span> Dovecot</div><div>Dovecot <span>&rarr; read &rarr;</span> Mutt (user2)</div></div></div>
+          <div class="body">
+            <h3>Self-hosted mail server</h3>
+            <p>A local mail system on Ubuntu 22.04 in VirtualBox. Two users send and receive mail with attachments, and I used the mail logs to find and fix problems. Built with a teammate.</p>
+            <div class="tags"><span>Postfix</span><span>Dovecot</span><span>Mutt</span><span>Ubuntu</span></div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="hardware">
+          <div class="art"><img src="images/project-clapswitch.jpg" alt="Clap switch circuit on a breadboard with a lit LED" loading="lazy"></div>
+          <div class="body">
+            <h3>Clap switch circuit</h3>
+            <p>A circuit with no IC that turns an LED on when a microphone picks up a clap. Two BC547 transistors amplify the signal, and the circuit runs on a 9V battery. Built with three teammates.</p>
+            <div class="tags"><span>BC547</span><span>Breadboard</span><span>Electronics</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project summary table -->
+  <section>
+    <div class="wrap">
+      <h2>Project summary</h2>
+      <div class="table-box">
+        <table>
+          <caption>All projects in one list</caption>
+          <thead>
+            <tr><th>Project</th><th>Type</th><th>Main technologies</th><th>Team work</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Quick Shopping</td><td>Web application</td><td>Java, JSP, Hibernate, MySQL, Tomcat</td><td>Individual</td></tr>
+            <tr><td>Solar system in OpenGL</td><td>Graphics software</td><td>OpenGL</td><td>Individual</td></tr>
+            <tr><td>Self-hosted mail server</td><td>System / network</td><td>Ubuntu, Postfix, Dovecot, Mutt</td><td>2 members</td></tr>
+            <tr><td>Clap switch circuit</td><td>Electronics hardware</td><td>BC547 transistors, breadboard, 9V battery</td><td>4 members</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year">2026</span> Nishat Jamal Ashik &middot; Built with HTML, CSS, JavaScript and jQuery</div>
+</footer>
+
+<script src="js/jquery-3.7.1.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
